@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikhel Kumar - Portfolio</title>
+    <style>
+        /* ===== Reset & Base Styles ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background-color: #F8F9FA;
+            color: #333333;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            padding-top: 60px;
+        }
+
+        /* ===== Container ===== */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 30px;
+        }
+
+        /* ===== Header ===== */
+        .hero-header {
+            text-align: center;
+            padding: 70px 20px;
+            background: linear-gradient(135deg, #AED6F1, #D4E6F1);
+            color: #2C3E50;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-top: 80px;
+        }
+
+        .hero-header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .hero-header p {
+            font-size: 1.4rem;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        /* ===== Navigation ===== */
+        .main-nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #E0E0E0;
+            border-radius: 15px;
+            padding: 10px 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .main-nav ul {
+            display: flex;
+            justify-content: flex-end;
+            list-style: none;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .main-nav li {
+            margin: 0;
+        }
+
+        .main-nav a {
+            color: #2C3E50;
+            font-weight: 600;
+            padding: 12px 16px;
+            border-radius: 10px;
+            transition: background 0.3s ease, color 0.3s ease;
+            background-color: #F1F1F1;
+            text-decoration: none;
+        }
+
+        .main-nav a:hover {
+            background-color: #AED6F1;
+            color: white;
+        }
+
+        /* ===== Sections ===== */
+        .section {
+            background-color: #FFFFFF;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 50px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(174, 214, 241, 0.1);
+        }
+
+        .section h2 {
+            font-size: 2.2rem;
+            color: #4682B4;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        /* ===== About Section ===== */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid #AED6F1;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text p {
+            font-size: 1.15rem;
+            margin-bottom: 18px;
+            line-height: 1.8;
+        }
+
+        /* ===== Skills ===== */
+        .skills-section ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+        }
+
+        .skills-section li {
+            background-color: #F1F8FC;
+            padding: 16px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .skills-section li:hover {
+            background-color: #D4E6F1;
+            transform: scale(1.05);
+        }
+
+        /* ===== Cards ===== */
+        .project-card,
+        .experience-card,
+        .education-card,
+        .testimonial-card {
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 18px;
+            background-color: #F9FBFD;
+            border-left: 8px solid #4682B4;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover,
+        .experience-card:hover,
+        .education-card:hover,
+        .testimonial-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px rgba(174, 214, 241, 0.1);
+        }
+
+        .education-card {
+            border-left-color: #85C1E9;
+        }
+
+        .testimonial-card {
+            font-style: italic;
+            border-left-color: #D2B4DE;
+        }
+
+        /* ===== Contact and Feedback Form ===== */
+        .contact-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-section li {
+            margin-bottom: 15px;
+            font-size: 1.15rem;
+            color: #4682B4;
+        }
+
+        .feedback-form label,
+        .feedback-form input,
+        .feedback-form textarea,
+        .feedback-form button {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .feedback-form button {
+            background-color: #AED6F1;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .feedback-form button:hover {
+            background-color: #4682B4;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            padding: 30px;
+            background-color: #F1F1F1;
+            color: #2C3E50;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* ===== Animations ===== */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .main-nav {
+                top: 10px;
+                right: 10px;
+                width: auto;
+            }
+
+            .main-nav ul {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 25px;
+            }
+
+            .main-nav li {
+                margin: 15px 0;
+            }
+
+            .profile-img {
+                width: 160px;
+                height: 160px;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="hero-header">
+            <h1>Nikhel Kumar Portfolio</h1>
+            <p>Solving Python Puzzles, One Code at a Time</p>
+        </header>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#self-employed">Self-Employed</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#feedback">Feedback</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-layout">
+            <section id="about" class="section fade-in about-sidebar">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <img src="download.jpg" alt="Nikhel Kumar Profile Photo" class="profile-img">
+                    <div class="about-text">
+                        <p>I'm <strong>Nikhel Kumar</strong>, a <em>student at MIET College</em> with a passion for <em>solving Python problems</em>. Based in <em>Meerut</em>, I thrive on <em>debugging code late into the night and building efficient solutions</em>.</p>
+                        <p>What drives me? <em>From learning Python basics to tackling complex coding challenges, I love turning code into solutions that make a difference.</em></p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="main-content">
+                <section id="skills" class="section skills-section fade-in">
+                    <h2>Skills & Expertise</h2>
+                    <ul>
+                        <li>Python Programming</li>
+                        <li>Problem-Solving</li>
+                        <li>Communication</li>
+                        <li>Creativity</li>
+                        <li>CSS</li>
+                        <li>HTML</li>
+                        <li>Time Management</li>
+                    </ul>
+                </section>
+
+                <section id="experience" class="section fade-in">
+                    <h2>Experience & Projects</h2>
+                    <div class="project-card">
+                        <h3>Project 1: Chaos to Clarity App</h3>
+                        <p><strong>Role:</strong> ------ </p>
+                        <p><strong>Description:</strong> ------ </p>
+                        <p><strong>Impact:</strong> ----- <a href="#"> ..... </a></p>
+                        <p><strong>Date:</strong> not know </p>
+                    </div>
+                    <div class="experience-card">
+                        <h3>Current Role: Student at MIET College</h3>
+                        <p>Actively engaged in coursework and personal projects focused on Python programming and problem-solving. (Ongoing)</p>
+                    </div>
+                </section>
+
+                <section id="self-employed" class="section fade-in">
+                    <h2>Self-Employed Ventures</h2>
+                    <div class="project-card">
+                        <h3> 2025 - present </h3>
+                        <p> Alongside my academics, i am actively learning app development, working on personal projects, and enhancing my skills in HTML, CSS, JAVA.  </p>
+                    </div>
+                    <div class="experience-card">
+                        <h3>Personal Coding Challenges</h3>
+                        <p>Self-initiated projects solving coding puzzles on platforms like LeetCode and HackerRank, building a portfolio of efficient algorithms.</p>
+                    </div>
+                </section>
+
+                <section id="education" class="section fade-in">
+                    <h2>Education Qualifications</h2>
+                    <div class="education-card">
+                        <h3>Bachelor's in Computer Science</h3>
+                        <p>MIET College, Meerut</p>
+                        <p>Pursuing degree with a focus on Python programming and problem-solving.</p>
+                        <p>Expected Graduation: 2025</p>
+                    </div>
+                    <div class="education-card">
+                        <h3>12th Grade (Higher Secondary)</h3>
+                        <p>School Name: Kendriya Vidhyalaya Sikh Lines, Meerut</p>
+                        <p>Board: CBSE</p>
+                        <p>Passing Year: 2024</p>
+                        <p>Percentage/GPA: 70%</p>
+                    </div>
+                    <div class="education-card">
+                        <h3>10th Grade (High School)</h3>
+                        <p>School Name: Kendriya Vidhyalaya Sikh Lines, Meerut</p>
+                        <p>Board: CBSE</p>
+                        <p>Passing Year: 2022</p>
+                        <p>Percentage/GPA: 77%</p>
+                    </div>
+                </section>
+
+                <section id="testimonials" class="section fade-in">
+                    <h2>Testimonials</h2>
+                    <div class="testimonial-card">
+                        <p>"Nikhel Kumar is a force of nature—brilliant, reliable, and always one step ahead in solving Python challenges." – Imaginary Professor, MIET College.</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Their portfolio isn't just work; it's inspiration for fellow coders." – Fictional Peer, Coding Club Member.</p>
+                    </div>
+                </section>
+
+                <section id="feedback" class="section fade-in">
+                    <h2>Feedback</h2>
+                    <p>Share your thoughts on my portfolio or suggest improvements! I'd love to hear from you.</p>
+                    <form action="https://formspree.io/f/your-unique-id" method="post" class="feedback-form">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <button type="submit">Submit Feedback</button>
+                    </form>
+                </section>
+
+                <section id="contact" class="section contact-section fade-in">
+                    <h2>Let's Connect!</h2>
+                    <p>I'm always up for collaborating on Python projects or coding challenges. Shoot me a message!</p>
+                    <ul>
+                        <li><strong>Email:</strong> <a href="mailto:nikhelkumar2006@gmail.com">nikhelkumar2006@gmail.com</a></li>
+                        <li><strong>LinkedIn:</strong> <a href="#">linkedin.com/in/nikhelkumar</a></li>
+                        <li><strong>Phone:</strong> 80******55</li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy;2025 Nikhel_Portfolio.<br> Made by Nikhel Kumar.</p>
+        </footer>
+    </div>
+</body>
+</html>
